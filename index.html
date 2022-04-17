@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<script type="text/javascript">
+    var canvas1, ctx1, flag1 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag1 = false;
+
+    var x = "black",
+        y = 7;
+    
+    function init1() {
+        canvas1 = document.getElementById('can1');
+        ctx1 = canvas1.getContext("2d");
+        w = canvas1.width;
+        h = canvas1.height;
+    
+        canvas1.addEventListener("mousemove", function (e) {
+            findxy1('move', e)
+        }, false);
+        canvas1.addEventListener("mousedown", function (e) {
+            findxy1('down', e)
+        }, false);
+        canvas1.addEventListener("mouseup", function (e) {
+            findxy1('up', e)
+        }, false);
+        canvas1.addEventListener("mouseout", function (e) {
+            findxy1('out', e)
+        }, false);
+    }
+    
+    function color1(obj) {
+        switch (obj.id) {
+            case "green1":
+                x = "green";
+                break;
+            case "blue1":
+                x = "blue";
+                break;
+            case "red1":
+                x = "red";
+                break;
+            case "yellow1":
+                x = "yellow";
+                break;
+            case "orange1":
+                x = "orange";
+                break;
+            case "black1":
+                x = "black";
+                break;
+            case "white1":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw1() {
+        ctx1.beginPath();
+        ctx1.moveTo(prevX, prevY);
+        ctx1.lineTo(currX, currY);
+        ctx1.strokeStyle = x;
+        ctx1.lineWidth = y;
+        ctx1.lineCap = "round";
+        ctx1.lineJoin = "round";
+        ctx1.stroke();
+        ctx1.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx1.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas1.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy1(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas1.offsetLeft;
+            currY = e.clientY - canvas1.offsetTop;
+    
+            flag1 = true;
+            dot_flag1 = true;
+            if (dot_flag1) {
+                ctx1.beginPath();
+                ctx1.fillStyle = x;
+                ctx1.fillRect(currX, currY, 2, 2);
+                ctx1.closePath();
+                dot_flag1 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag1 = false;
+        }
+        if (res == 'move') {
+            if (flag1) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas1.offsetLeft;
+                currY = e.clientY - canvas1.offsetTop;
+                draw1();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "black",
+        y = 7;
+    
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
+    
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+    }
+    
+    function color(obj) {
+        switch (obj.id) {
+            case "green":
+                x = "green";
+                break;
+            case "blue":
+                x = "blue";
+                break;
+            case "red":
+                x = "red";
+                break;
+            case "yellow":
+                x = "yellow";
+                break;
+            case "orange":
+                x = "orange";
+                break;
+            case "black":
+                x = "black";
+                break;
+            case "white":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 7;
+    
+    }
+    
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.stroke();
+        ctx.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+    
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+                draw();
+            }
+        }
+    }
+    </script>
+<body onload="init();init1();">
+	<h3 style="text-align: center;">PP1</h3>
+	<div class="slider">
+		
+<div class="slide active">
+	<h4>Language</h4>
+	1). Fill in the missing vowels (a,e,i,o,u)
+
+	<div class="empty-containera">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">a</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">e</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">i</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">o</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">u</div></div>
+	</div>
+<div class="words">
+<div >H <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> n</div>
+
+<div>M <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;text-align: center;"></div> t</div>
+
+<div >P <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> g</div>
+
+
+<div >P <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> n</div>
+
+ <div><div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> sk</div>
+
+<div> <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> m</div>
+
+<div> <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> xe</div>
+
+<div>H <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> n</div>
+</div>
+</div>
+
+
+
+<div class="slide">
+2) Match
+<div class="empty-container">
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/depositphotos_43182117-stock-illustration-funny-cat-cartoon.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Hat</div>
+	</div>
+
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/411c4e8a0d93b049f2eaef48f1f68dc0.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Cup</div>
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Cat</div>
+	</div>
+	</div>
+</div>
+
+<div class="slide">
+3). Fill in the missing sounds:
+
+<div class="empty-containerb">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">A</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">B</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">C</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">D</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">E</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">F</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">G</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">H</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">I</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">J</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">A</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">K</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">L</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">M</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">N</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">O</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">P</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">Q</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">R</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">S</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">T</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">U</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">V</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">W</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">X</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">Y</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">Z</div></div>
+	</div>
+<table width="100%" class="table table-bordered" >
+	<tr>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">A</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">D</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">H</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">L</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">M</div></td>
+	</tr>
+	<tr>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">O</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">P</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">S</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">T</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">U</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">X</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">Y</div></td>
+		<td></td>
+	</tr>
+</table>
+</div>
+
+
+<div class="slide">
+4). Fill in the missing vowels (a,e,i,o,u)
+
+	<div class="empty-containera">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">a</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">e</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">o</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">u</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">a</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">e</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">o</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">u</div></div>
+	</div>
+<div class="wordsb">
+<div ><img src="images/15xp-egg-promo-superJumbo-v2.jpg" style="device-width: 150px;height:150px;"> H<div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div>t</div><br>
+<div ><img src="images/125311.jpeg" style="device-width: 150px;height:150px;"> <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> gg</div><br>
+<div ><img src="images/download.png" style="device-width: 150px;height:150px;"> N<div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> t</div><br>
+
+</div>
+</div>
+
+
+<div class="slide">
+<h4>Mathematics</h4>
+
+
+1).Copy the numbers 1-10:
+
+<div class="empty-containerb">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">10</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">6</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">8</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">9</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">5</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">2</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">4</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">3</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">1</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">7</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true"></div></div>
+
+
+		
+	</div>
+<table width="100%" class="table table-bordered" >
+	<tr>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">1</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">2</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">3</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">4</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">5</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">6</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">7</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">8</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">9</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">10</div></td>
+	</tr>
+	<tr>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+	</tr>
+</table>
+</div>
+	
+<div class="slide">	
+2). Match
+
+	<div class="empty-containera">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">5</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">1</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">4</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">3</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">2</div></div>
+	</div>
+<div class="wordsd">
+<div > 1<div class="emptya" style="border: none;border: 1px solid #000;width: 50px;height: 50px;margin-left: 50px;padding: 20px;"></div></div><br>
+<div >2<div class="emptya" style="border: none;border: 1px solid #000;width: 50px;height: 50px;margin-left: 50px;padding: 20px;"></div></div><br>
+<div >3<div class="emptya" style="border: none;border: 1px solid #000;width: 50px;height: 50px;margin-left: 50px;padding: 20px;"></div></div><br>
+<div > 4<div class="emptya" style="border: none;border: 1px solid #000;width: 50px;height: 50px;margin-left: 50px;padding: 20px;"></div></div><br>
+<div >5<div class="emptya" style="border: none;border: 1px solid #000;width: 50px;height: 50px;margin-left: 50px;padding: 20px;"></div></div><br>
+
+</div>
+</div>
+
+
+
+<div class="slide">
+3). Count and write:
+
+	<div class="empty-containerc">
+		<div class="count">
+			<div class="count-items">
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+			</div>
+			<input class="empty-count">
+		</div>
+
+		<div class="count" >
+			<div class="count-items">
+				<img src="images/istockphoto-172147072-170667a.jpg">
+				<img src="images/istockphoto-172147072-170667a.jpg">
+				<img src="images/istockphoto-172147072-170667a.jpg">
+				<img src="images/istockphoto-172147072-170667a.jpg">
+				<img src="images/istockphoto-172147072-170667a.jpg">
+				<img src="images/istockphoto-172147072-170667a.jpg">
+			</div>
+			<input class="empty-count">
+		</div>
+
+		<div class="count" >
+			<div class="count-items">
+				<img src="images/06ac9da1a17c6daf308ea6b6bb6568a2.jpg">
+			</div>
+			<div class="empty-count"></div>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="slide">
+4) Add :
+
+<div class="container">
+	<div class="add">
+		<div>3 + 2  = </div>
+		<input class="empty-add">
+	</div>
+</div>
+<div class="container">
+	<div class="add">
+		<div>2 + 2  = </div>
+		<input class="empty-add">
+	</div>
+</div>
+<div class="container">
+	<div class="add">
+		<div>3 + 1  = </div>
+		<input class="empty-add">
+	</div>
+</div>
+<div class="container">
+	<div class="add">
+		<div>3 + 2  = </div>
+		<input class="empty-add">
+	</div>
+</div>
+</div>
+
+
+	<div class="slide">
+    <h3>Environmental</h3>
+<h4>1). Color the clothes we wear</h4>
+<div class="container">
+	 <canvas id="can" width="1000" height="300" style="border:2px solid;
+	 margin-top: 2rem;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="images/canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+
+
+        <div class="row shade" style="position:absolute;top:200px;left:100px;z-index: -100;">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                       <img src="images/images.jpeg"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="images/download (1).png"> 
+                    </div>
+                   
+                </div>
+        
+</div>
+</div>
+</div>
+<div class="slide">
+    <h3>Environmental</h3>
+<h4>1). Color the clothes we wear</h4>
+<div class="container">
+	 <canvas id="can1" width="1000" height="300" style="border:2px solid;
+	 margin-top: 2rem;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="images/canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+
+
+        <div class="row shade" style="position:absolute;top:200px;left:100px;z-index: -100;">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                       <img src="images/pyj4ha.jpg" style="height: 230px"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="images/images (1).png"> 
+                    </div>
+                   
+                </div>
+        
+</div>
+</div>
+</div>
+
+
+</div>
+<div class="controls">
+    <div class="row">
+    	<div class="col-md-10">
+    		
+    	</div>
+        <div class="col-md-1">
+            <button class="btn btn-primary prev">Prev</button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary next">Next</button>
+        </div>
+    </div>
+<script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>

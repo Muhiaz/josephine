@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<script type="text/javascript">
+    var canvas6, ct6, flag6 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag6 = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init6() {
+        canvas6 = document.getElementById('can6');
+        ctx6 = canvas6.getContext("2d");
+        w = canvas6.width;
+        h = canvas6.height;
+    
+        canvas6.addEventListener("mousemove", function (e) {
+            findxy6('move', e)
+        }, false);
+        canvas6.addEventListener("mousedown", function (e) {
+            findxy6('down', e)
+        }, false);
+        canvas6.addEventListener("mouseup", function (e) {
+            findxy6('up', e)
+        }, false);
+        canvas6.addEventListener("mouseout", function (e) {
+            findxy6('out', e)
+        }, false);
+    }
+    
+    function color6(obj) {
+        switch (obj.id) {
+            case "green6":
+                x = "green";
+                break;
+            case "blue6":
+                x = "blue";
+                break;
+            case "red6":
+                x = "red";
+                break;
+            case "yellow6":
+                x = "yellow";
+                break;
+            case "orange6":
+                x = "orange";
+                break;
+            case "black6":
+                x = "black";
+                break;
+            case "white6":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw6() {
+        ctx6.beginPath();
+        ctx6.moveTo(prevX, prevY);
+        ctx6.lineTo(currX, currY);
+        ctx6.strokeStyle = x;
+        ctx6.lineWidth = y;
+        ctx6.lineCap = "round";
+        ctx6.lineJoin = "round";
+        ctx6.stroke();
+        ctx6.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx6.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas6.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy6(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas6.offsetLeft;
+            currY = e.clientY - canvas6.offsetTop;
+    
+            flag6 = true;
+            dot_flag6 = true;
+            if (dot_flag6) {
+                ctx6.beginPath();
+                ctx6.fillStyle = x;
+                ctx6.fillRect(currX, currY, 2, 2);
+                ctx6.closePath();
+                dot_flag6 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag6 = false;
+        }
+        if (res == 'move') {
+            if (flag6) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas6.offsetLeft;
+                currY = e.clientY - canvas6.offsetTop;
+                draw6();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas5, ct5, flag5 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag5 = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init5() {
+        canvas5 = document.getElementById('can5');
+        ctx5 = canvas5.getContext("2d");
+        w = canvas5.width;
+        h = canvas5.height;
+    
+        canvas5.addEventListener("mousemove", function (e) {
+            findxy5('move', e)
+        }, false);
+        canvas5.addEventListener("mousedown", function (e) {
+            findxy5('down', e)
+        }, false);
+        canvas5.addEventListener("mouseup", function (e) {
+            findxy5('up', e)
+        }, false);
+        canvas5.addEventListener("mouseout", function (e) {
+            findxy5('out', e)
+        }, false);
+    }
+    
+    function color5(obj) {
+        switch (obj.id) {
+            case "green5":
+                x = "green";
+                break;
+            case "blue5":
+                x = "blue";
+                break;
+            case "red5":
+                x = "red";
+                break;
+            case "yellow5":
+                x = "yellow";
+                break;
+            case "orange5":
+                x = "orange";
+                break;
+            case "black5":
+                x = "black";
+                break;
+            case "white5":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw5() {
+        ctx5.beginPath();
+        ctx5.moveTo(prevX, prevY);
+        ctx5.lineTo(currX, currY);
+        ctx5.strokeStyle = x;
+        ctx5.lineWidth = y;
+        ctx5.lineCap = "round";
+        ctx5.lineJoin = "round";
+        ctx5.stroke();
+        ctx5.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx5.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas5.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy5(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas5.offsetLeft;
+            currY = e.clientY - canvas5.offsetTop;
+    
+            flag5 = true;
+            dot_flag5 = true;
+            if (dot_flag5) {
+                ctx5.beginPath();
+                ctx5.fillStyle = x;
+                ctx5.fillRect(currX, currY, 2, 2);
+                ctx5.closePath();
+                dot_flag5 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag5 = false;
+        }
+        if (res == 'move') {
+            if (flag5) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas5.offsetLeft;
+                currY = e.clientY - canvas5.offsetTop;
+                draw5();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas4, ct4, flag4 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag4 = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init4() {
+        canvas4 = document.getElementById('can4');
+        ctx4 = canvas4.getContext("2d");
+        w = canvas4.width;
+        h = canvas4.height;
+    
+        canvas4.addEventListener("mousemove", function (e) {
+            findxy4('move', e)
+        }, false);
+        canvas4.addEventListener("mousedown", function (e) {
+            findxy4('down', e)
+        }, false);
+        canvas4.addEventListener("mouseup", function (e) {
+            findxy4('up', e)
+        }, false);
+        canvas4.addEventListener("mouseout", function (e) {
+            findxy4('out', e)
+        }, false);
+    }
+    
+    function color4(obj) {
+        switch (obj.id) {
+            case "green4":
+                x = "green";
+                break;
+            case "blue4":
+                x = "blue";
+                break;
+            case "red4":
+                x = "red";
+                break;
+            case "yellow4":
+                x = "yellow";
+                break;
+            case "orange4":
+                x = "orange";
+                break;
+            case "black4":
+                x = "black";
+                break;
+            case "white4":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw4() {
+        ctx4.beginPath();
+        ctx4.moveTo(prevX, prevY);
+        ctx4.lineTo(currX, currY);
+        ctx4.strokeStyle = x;
+        ctx4.lineWidth = y;
+        ctx4.lineCap = "round";
+        ctx4.lineJoin = "round";
+        ctx4.stroke();
+        ctx4.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx4.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas4.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy4(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas4.offsetLeft;
+            currY = e.clientY - canvas4.offsetTop;
+    
+            flag4 = true;
+            dot_flag4 = true;
+            if (dot_flag4) {
+                ctx4.beginPath();
+                ctx4.fillStyle = x;
+                ctx4.fillRect(currX, currY, 2, 2);
+                ctx4.closePath();
+                dot_flag4 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag4 = false;
+        }
+        if (res == 'move') {
+            if (flag4) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas4.offsetLeft;
+                currY = e.clientY - canvas4.offsetTop;
+                draw4();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas3, ctx3, flag3 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag3 = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init3() {
+        canvas3 = document.getElementById('can3');
+        ctx3 = canvas3.getContext("2d");
+        w = canvas3.width;
+        h = canvas3.height;
+    
+        canvas3.addEventListener("mousemove", function (e) {
+            findxy3('move', e)
+        }, false);
+        canvas3.addEventListener("mousedown", function (e) {
+            findxy3('down', e)
+        }, false);
+        canvas3.addEventListener("mouseup", function (e) {
+            findxy3('up', e)
+        }, false);
+        canvas3.addEventListener("mouseout", function (e) {
+            findxy3('out', e)
+        }, false);
+    }
+    
+    function color3(obj) {
+        switch (obj.id) {
+            case "green3":
+                x = "green";
+                break;
+            case "blue3":
+                x = "blue";
+                break;
+            case "red3":
+                x = "red";
+                break;
+            case "yellow3":
+                x = "yellow";
+                break;
+            case "orange3":
+                x = "orange";
+                break;
+            case "black3":
+                x = "black";
+                break;
+            case "white3":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw3() {
+        ctx3.beginPath();
+        ctx3.moveTo(prevX, prevY);
+        ctx3.lineTo(currX, currY);
+        ctx3.strokeStyle = x;
+        ctx3.lineWidth = y;
+        ctx3.lineCap = "round";
+        ctx3.lineJoin = "round";
+        ctx3.stroke();
+        ctx3.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx3.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas3.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy3(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas3.offsetLeft;
+            currY = e.clientY - canvas3.offsetTop;
+    
+            flag3 = true;
+            dot_flag3 = true;
+            if (dot_flag3) {
+                ctx3.beginPath();
+                ctx3.fillStyle = x;
+                ctx3.fillRect(currX, currY, 2, 2);
+                ctx3.closePath();
+                dot_flag3 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag3 = false;
+        }
+        if (res == 'move') {
+            if (flag3) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas3.offsetLeft;
+                currY = e.clientY - canvas3.offsetTop;
+                draw3();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas2, ctx2, flag2 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag2 = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init2() {
+        canvas2 = document.getElementById('can2');
+        ctx2 = canvas2.getContext("2d");
+        w = canvas2.width;
+        h = canvas2.height;
+    
+        canvas2.addEventListener("mousemove", function (e) {
+            findxy2('move', e)
+        }, false);
+        canvas2.addEventListener("mousedown", function (e) {
+            findxy2('down', e)
+        }, false);
+        canvas2.addEventListener("mouseup", function (e) {
+            findxy2('up', e)
+        }, false);
+        canvas2.addEventListener("mouseout", function (e) {
+            findxy2('out', e)
+        }, false);
+    }
+    
+    function color2(obj) {
+        switch (obj.id) {
+            case "green2":
+                x = "green";
+                break;
+            case "blue2":
+                x = "blue";
+                break;
+            case "red2":
+                x = "red";
+                break;
+            case "yellow2":
+                x = "yellow";
+                break;
+            case "orange2":
+                x = "orange";
+                break;
+            case "black2":
+                x = "black";
+                break;
+            case "white2":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw2() {
+        ctx2.beginPath();
+        ctx2.moveTo(prevX, prevY);
+        ctx2.lineTo(currX, currY);
+        ctx2.strokeStyle = x;
+        ctx2.lineWidth = y;
+        ctx2.lineCap = "round";
+        ctx2.lineJoin = "round";
+        ctx2.stroke();
+        ctx2.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx2.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas2.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy2(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas2.offsetLeft;
+            currY = e.clientY - canvas2.offsetTop;
+    
+            flag2 = true;
+            dot_flag2 = true;
+            if (dot_flag2) {
+                ctx2.beginPath();
+                ctx2.fillStyle = x;
+                ctx2.fillRect(currX, currY, 2, 2);
+                ctx2.closePath();
+                dot_flag2 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag2 = false;
+        }
+        if (res == 'move') {
+            if (flag2) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas2.offsetLeft;
+                currY = e.clientY - canvas2.offsetTop;
+                draw2();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas1, ctx1, flag1 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag1 = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init1() {
+        canvas1 = document.getElementById('can1');
+        ctx1 = canvas1.getContext("2d");
+        w = canvas1.width;
+        h = canvas1.height;
+    
+        canvas1.addEventListener("mousemove", function (e) {
+            findxy1('move', e)
+        }, false);
+        canvas1.addEventListener("mousedown", function (e) {
+            findxy1('down', e)
+        }, false);
+        canvas1.addEventListener("mouseup", function (e) {
+            findxy1('up', e)
+        }, false);
+        canvas1.addEventListener("mouseout", function (e) {
+            findxy1('out', e)
+        }, false);
+    }
+    
+    function color1(obj) {
+        switch (obj.id) {
+            case "green1":
+                x = "green";
+                break;
+            case "blue1":
+                x = "blue";
+                break;
+            case "red1":
+                x = "red";
+                break;
+            case "yellow1":
+                x = "yellow";
+                break;
+            case "orange1":
+                x = "orange";
+                break;
+            case "black1":
+                x = "black";
+                break;
+            case "white1":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw1() {
+        ctx1.beginPath();
+        ctx1.moveTo(prevX, prevY);
+        ctx1.lineTo(currX, currY);
+        ctx1.strokeStyle = x;
+        ctx1.lineWidth = y;
+        ctx1.lineCap = "round";
+        ctx1.lineJoin = "round";
+        ctx1.stroke();
+        ctx1.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx1.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas1.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy1(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas1.offsetLeft;
+            currY = e.clientY - canvas1.offsetTop;
+    
+            flag1 = true;
+            dot_flag1 = true;
+            if (dot_flag1) {
+                ctx1.beginPath();
+                ctx1.fillStyle = x;
+                ctx1.fillRect(currX, currY, 2, 2);
+                ctx1.closePath();
+                dot_flag1 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag1 = false;
+        }
+        if (res == 'move') {
+            if (flag1) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas1.offsetLeft;
+                currY = e.clientY - canvas1.offsetTop;
+                draw1();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
+    
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+    }
+    
+    function color(obj) {
+        switch (obj.id) {
+            case "green":
+                x = "green";
+                break;
+            case "blue":
+                x = "blue";
+                break;
+            case "red":
+                x = "red";
+                break;
+            case "yellow":
+                x = "yellow";
+                break;
+            case "orange":
+                x = "orange";
+                break;
+            case "black":
+                x = "black";
+                break;
+            case "white":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 2;
+    
+    }
+    
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.stroke();
+        ctx.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+    
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+                draw();
+            }
+        }
+    }
+    </script>
+<body onload="init();init1();init2();init3();init4();init5();init6();">
+	<h3 style="text-align: center;">PP2</h3>
+<div class="slider">
+<div class="slide active">
+	<h4>	Mathematics</h4>
+
+	1). Count and write:
+
+	<div class="empty-containerc">
+		<div class="count">
+			<div class="count-items">
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+				
+			</div>
+			<input class="empty-count">
+		</div>
+
+		<div class="count" >
+			<div class="count-items">
+				<img src="images/1200px-Football_(soccer_ball).svg.png">
+				<img src="images/1200px-Football_(soccer_ball).svg.png">
+				<img src="images/1200px-Football_(soccer_ball).svg.png">
+				<img src="images/1200px-Football_(soccer_ball).svg.png">
+			</div>
+			<input class="empty-count">
+		</div>
+
+		<div class="count" >
+			<div class="count-items">
+				<img src="images/apple_158989157.jpg">
+				<img src="images/apple_158989157.jpg">
+				<img src="images/apple_158989157.jpg">
+			</div>
+			<input class="empty-count">
+		</div>
+
+	</div>
+</div>
+
+
+<div class="slide">
+2).Fill in the missing numbers:
+
+<div class="empty-containerb">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">10</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">6</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">8</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">9</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">5</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">2</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">4</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">3</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">1</div></div>
+
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">7</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true"></div></div>
+
+
+		
+	</div>
+<table width="100%" class="table table-bordered" >
+	<tr>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">1</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;">4</div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+		<td><div class="emptya" style="border: none;width: 100%;height: 100%;text-align: center;"></div></td>
+	</tr>
+	
+</table>
+</div>
+
+
+<div class="slide">
+3). Add:
+
+	<div class="empty-containerc">
+		<div class="count" >
+			<div class="count-items">
+				<img src="images/1200px-Football_(soccer_ball).svg.png">
+				<div class="plus">+</div>
+				<img src="images/1200px-Football_(soccer_ball).svg.png">
+				<div class="plus">=</div>
+			</div>
+			<input class="empty-count">
+		</div>
+		<div class="count">
+			<div class="count-items">
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+				<div class="plus">+</div>
+				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+				<div class="plus">=</div>
+			</div>
+			<input class="empty-count">
+		</div>
+		<div class="count">
+			<div class="count-items">
+				<div class="plus">4</div>
+				<div class="plus">+</div>
+				<div class="plus">1</div>
+				<div class="plus">=</div>
+			</div>
+			<input class="empty-count">
+		</div>
+<div class="count">
+			<div class="count-items">
+				<div class="plus">6</div>
+				<div class="plus">+</div>
+				<div class="plus">2</div>
+				<div class="plus">=</div>
+			</div>
+			<input class="empty-count">
+		</div>
+	</div>
+</div>
+
+
+<div class="slide">
+4). Color and name the weather symbols
+		 <canvas id="can1" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12 one">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+			<img draggable="false" src="images/images.png" style="position:absolute;top:100px;left:100px;width:220px;height:200px;z-index: -100;">
+			<img draggable="false" src="images/118-1189537_clouds-png-animated-cute-cartoon-cloud-png-transparent.png" style="position:absolute;top:100px;left:400px;width:250px;height:200px;z-index: -100;">
+			<img draggable="false" src="images/png-transparent-white-cloud-and-rain-cloud-outline-rain-animated-cloud-s-love-white-face.png" style="position:absolute;top:100px;left:700px;width:250px;height:200px;z-index: -100;">
+			<img draggable="false" src="images/sun-and-clouds-cartoon-vector-23111708.jpg" style="position:absolute;top:300px;left:400px;width:250px;height:200px;z-index: -100;">
+</div>
+
+
+<div class="slide">
+	<h3>Language</h3>
+	1). Color and name the pictures
+	<canvas id="can2" width="900" height="300" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+			<img draggable="false" src="images/download (1).png" style="position:absolute;top:160px;left:100px;width:220px;height:220px;z-index: -100;">
+			<img draggable="false" src="images/images.jpeg" style="position:absolute;top:160px;left:400px;width:250px;height:220px;z-index: -100;">
+			<img draggable="false" src="images/pyj4ha.jpg" style="position:absolute;top:160px;left:700px;width:250px;height:220px;z-index: -100;">
+</div>
+
+
+
+<div class="slide">
+	2). Write in capital letters
+
+	<div class="empty-containera">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">A</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">B</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">C</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">D</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">E</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">F</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">G</div></div>
+	</div>
+<div class="empty-containera">
+<div > e.g   a <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;">A</div></div>
+
+<div>b <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;text-align: center;"></div> </div>
+
+<div >c <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> </div>
+
+
+<div >d <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+
+<div>e <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+
+<div>f <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+</div>
+</div>
+
+
+
+
+<div class="slide">
+3). Fill in the 'a' sound:
+
+	<div class="empty-containera">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">a</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">a</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">a</div></div>
+	</div>
+<div class="wordsb">
+<div ><img src="images/125311.jpeg" style="device-width: 150px;height:150px;"> H<div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div>t</div><br>
+<div ><img src="images/welcome-mat-isolated-8778664.jpg" style="device-width: 150px;height:150px;">M <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div>t</div><br>
+<div ><img src="images/51-sr6ZPwxL._SL1300_.jpg" style="device-width: 150px;height:150px;"> <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div> xe</div><br>
+
+</div>
+</div>
+
+
+
+
+
+<div class="slide">
+<h3>Reading</h3>
+ <h4>1). Read these pictures:</h4>
+
+ <div class="container">
+ 	<div class="row read">
+ 		<div class="col-md-12">
+ 			<div class="col-md-4">
+ 				<img src="images/welcome-mat-isolated-8778664.jpg"><br>
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/pyj4ha.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 		</div>
+ 	</div><br>
+ 	<div class="row read">
+ 		<div class="col-md-12">
+ 			<div class="col-md-4">
+ 				<img src="images/1200px-Football_(soccer_ball).svg.png">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/264047c5fbce816f504d82ce01fd0134.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/411c4e8a0d93b049f2eaef48f1f68dc0.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 		</div><br>
+ 		<div class="row read">
+ 		<div class="col-md-12">
+ 			<div class="col-md-4">
+ 				<img src="images/download (2).png">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/download.png">
+ 				<input type="" name="">
+ 			</div>
+ 			
+ 		</div>
+ 	</div>
+ </div>
+</div>
+</div>
+
+
+<div class="slide">
+<h3>Reading</h3>
+ <h4>2). Read these pictures:</h4>
+
+ <div class="container">
+ 	<div class="row read">
+ 		<div class="col-md-12">
+ 			<div class="col-md-4">
+ 				<img src="images/welcome-mat-isolated-8778664.jpg"><br>
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/pyj4ha.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 		</div>
+ 	</div><br>
+ 	<div class="row read">
+ 		<div class="col-md-12">
+ 			<div class="col-md-4">
+ 				<img src="images/1200px-Football_(soccer_ball).svg.png">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/264047c5fbce816f504d82ce01fd0134.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/411c4e8a0d93b049f2eaef48f1f68dc0.jpg">
+ 				<input type="" name="">
+ 			</div>
+ 		</div><br>
+ 		<div class="row read">
+ 		<div class="col-md-12">
+ 			<div class="col-md-4">
+ 				<img src="images/download (2).png">
+ 				<input type="" name="">
+ 			</div>
+ 			<div class="col-md-4">
+ 				<img src="images/download.png">
+ 				<input type="" name="">
+ 			</div>
+ 			
+ 		</div>
+ 	</div>
+ </div>
+</div>
+</div>
+
+<div class="slide">
+3) Read these words:
+
+<div class="container">
+	<div class="row read">
+		<div class="col-md-12">
+			<div class="col-md-2">
+				Boy
+			</div>
+			<div class="col-md-2">
+				Cup
+			</div>
+			<div class="col-md-2">
+				Pot
+			</div>
+			<div class="col-md-2">
+				It
+			</div>
+			<div class="col-md-2">
+				Fish
+			</div>
+			<div class="col-md-2">
+				Egg
+			</div>
+			<div class="col-md-2">
+				Bell
+			</div>
+			<div class="col-md-2">
+				Hot
+			</div>
+			<div class="col-md-2">
+				Cat
+			</div>
+			<div class="col-md-2">
+				Apple
+			</div>
+			<div class="col-md-2">
+				Den
+			</div>
+			<div class="col-md-2">
+				Has
+			</div>
+			<div class="col-md-2">
+				Is
+			</div>
+			<div class="col-md-2">
+				On
+			</div>
+			<div class="col-md-2">
+				Ball
+			</div>
+			<div class="col-md-2">
+				Pin
+			</div>
+			<div class="col-md-2">
+				Arm
+			</div>
+			<div class="col-md-2">
+				Leg
+			</div>
+			<div class="col-md-2">
+				Of
+			</div>
+			<div class="col-md-2">
+				Doll
+			</div>
+			<div class="col-md-2">
+				Girl
+			</div>
+			<div class="col-md-2">
+				Dog
+			</div>
+			<div class="col-md-2">
+				Pet
+			</div>
+			<div class="col-md-2">
+				Tin
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+
+<div class="slide">
+<h3>Psychomotor and Creative activities:</h3>
+
+<h4>1). Color the picture:</h4>
+<div class="row read">
+ 			<canvas id="can3" width="400" height="400" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+			<img draggable="false" src="images/vector-cartoon-cute-bird-isolated-white-background-cartoon-cute-bird-isolated-white-background-105737116.jpg" style="position:absolute;top:250px;left:100px;width:220px;height:220px;z-index: -100;">
+ 		</div>
+</div>
+
+
+
+
+
+
+<div class="slide">
+<h4>2). Complete the patterns:</h4>
+<div class="empty-containera">
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">C</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">C</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">C</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">S</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">S</div></div>
+		<div class="emptya" style="border: none;width: 20px;height: 20px;text-align: center;"><div class="filla" draggable="true">S</div></div>
+	</div>
+<div class="empty-containera">
+<div >   C</div>
+
+<div>C </div>
+
+<div >C </div>
+
+
+<div > <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+
+<div><div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+
+<div><div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+</div>
+<div class="empty-containera">
+<div >   S</div>
+
+<div>S </div>
+
+<div >S </div>
+
+
+<div > <div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+
+<div><div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+
+<div><div class="emptya" style="border: none;border-bottom: 1px solid #000;width: 20px;height: 20px;"></div></div>
+</div>
+</div>
+
+
+
+
+<div class="slide">
+<h4>3). Color the traffic lights:</h4>
+<canvas id="can4" width="400" height="400" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+			<img draggable="false" src="images/e4050ed353ebe2ad1a677c1bb8411758.png" style="position:absolute;top:200px;left:200px;width:250px;height:220px;z-index: -100;">
+</div>
+
+
+
+
+<div class="slide">
+<h4>4). Color the slide:</h4>
+<canvas id="can5" width="400" height="400" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+			<img draggable="false" src="images/f4ce2816-d291-4bde-a0da-14cfbc624475_1.e475a6ff193957e40528ae6edee4b78e.jpeg" style="position:absolute;top:200px;left:200px;width:250px;height:220px;z-index: -100;">
+</div>
+
+
+
+
+
+
+
+
+<div class="slide">
+<h3>Activities</h3>
+<h4>1). Name three memebers of the family</h4>
+<div class="container fillin">
+a). <input type="" name=""><br>
+b). <input type="" name=""><br>
+c). <input type="" name="">
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="slide">
+2) Match the body part and its use:
+<div class="empty-container">
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/download (1).jpeg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Work</div>
+	</div>
+
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/png-clipart-animation-hand-heart.png" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">See</div>
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/blue-tea-cup-icon-cartoon-style-vector-31336127.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Smell</div>
+	</div>
+	</div>
+</div>
+
+
+
+
+<div class="slide">
+3). Draw and color God's creation:
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">Bird</div>
+		<div class="col-md-3">Fish</div>
+		<div class="col-md-3">Tree</div>
+		<div class="col-md-3">Mountain</div>
+	</div>
+	 <canvas id="can" width="1000" height="300" style="border:2px solid;
+	 margin-top: 2rem;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+</div>
+</div>
+
+
+
+<div class="slide">
+	<div class="fillin">
+	<div class="row">
+	<div class="fill col-md-12" draggable="true">Phone</div>
+	<div class="fill col-md-12" draggable="true">Prayers</div>
+	</div>
+</div>
+4). We speak to God through <div class="empty" type="" name="" readonly></div>
+</div>
+
+
+
+<div class="slide">
+<h3>Environmental activities</h3>
+<h4>1). Color and name these items</h4>
+<canvas id="can6" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+			<img draggable="false" src="images/download (2).jpeg" style="position:absolute;top:200px;left:100px;width:250px;height:220px;z-index: -100;">
+			<img draggable="false" src="images/360_F_97777901_tR48eZi5KrZ22R4oJ3aXYmvMIn5yPZO9.jpg" style="position:absolute;top:200px;left:600px;width:250px;height:220px;z-index: -100;">
+</div>
+
+
+
+
+
+<div class="slide">
+ 		2) Match:
+<div class="container">
+<div class="col-md-12">
+<div class="empty-container">
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/52-527219_rain-animation-clip-art-clipart-rain-transparent-background.png" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Sea</div>
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/3l-Akosombo.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Rain</div>
+	</div>
+
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/download (3).jpeg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">River</div>
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="images/unnamed.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Dam</div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="slide">
+<div class="fillin">
+	<div class="row">
+	<div class="filla col-md-12" draggable="true" style="border: none;width: 20px;height: 20px;text-align: center;">1</div>
+	<div class="filla col-md-12" draggable="true" style="border: none;width: 20px;height: 20px;text-align: center;">0</div>
+	<div class="filla col-md-12" draggable="true" style="border: none;width: 20px;height: 20px;text-align: center;">4</div>
+	</div>
+</div>
+3). A snake has <div class="emptya" type="" name="" readonly style="border: none;width: 20px;height: 20px;text-align: center;border-bottom: 1px solid #000;"></div>  legs.
+</div>
+</div>
+</div>
+<div class="controls">
+	<div class="row">
+		<div class="col-md-10">
+    		
+    	</div>
+		<div class="col-md-1">
+			<button class="btn btn-primary prev">Prev</button>
+		</div>
+		<div class="col-md-1">
+			<button class="btn btn-primary next">Next</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>

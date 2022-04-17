@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<link rel="stylesheet" type="text/css" href="assets/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="mode">
+		<div class="mode-body">
+			<h4 style="color:green;font-weight: bold;">Successfully downloaded Resource</h4>
+			<button id="close" class="btn btn-primary" style="width: 20%;">OK</button>
+		</div>
+	</div>
+	<section class="downloads">
+	<div class="container">
+		<div class="col-md-10 col-md-offset-1" style="padding:0px">
+			<div class="col-md-8" style="padding:0px">
+				<h2 class="text-header">DOWNLOAD PRE PRIMARY 2 RESOURCES !</h2>
+			</div>
+			<div class="col-md-4 links" style="text-align:center;">
+				<a href="#">Home</a>
+				<a href="#">Lessons</a>
+			</div>
+		</div>
+		<div class="col-md-12" >
+			<div class="col-md-6" style="
+			text-align: left;padding-left: 9rem;">
+		<p>Click to download your preferred category</p>
+	</div>
+	</div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="col-md-4">
+					<div class="play-resource">
+						<h4>MATHEMATICS</h4>
+						<img src="Kidel Web Assets/Resources Page/Playgroup BG.png">
+							<a id="download" href="DOCUMENTS/PP2.docx" class="downloader"><button class="btn btn-block btn-yellow">DOWNLOAD <i class="fa fa-download"></i></button></a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="pre1-resource">
+						<h4>LANGUAGE</h4>
+						<img src="Kidel Web Assets/Resources Page/pRIMARY 2 BG.png">
+					
+							<a id="download1" href="DOCUMENTS/PP2.docx"><button class="btn btn-block btn-blue">DOWNLOAD <i class="fa fa-download"></i></button></a>
+				</div>
+				</div>
+				<div class="col-md-4">
+					<div class="pre2-resource">
+						<h4>READING</h4>
+						<img src="Kidel Web Assets/Resources Page/PRIMARY 1 BG.png">
+							<a id="download2" href="DOCUMENTS/PP2.docx"><button class="btn btn-block btn-purple">DOWNLOAD <i class="fa fa-download"></i></button></a>
+				</div>
+				</div>
+				<div class="col-md-4">
+					<div class="play-resource">
+						<h4>RELIGIOUS</h4>
+						<img src="Kidel Web Assets/Resources Page/Playgroup BG.png">
+							<a id="download3" href="DOCUMENTS/PP2.docx"><button class="btn btn-block btn-yellow">DOWNLOAD <i class="fa fa-download"></i></button></a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="pre1-resource">
+						<h4>CREATIVE</h4>
+						<img src="Kidel Web Assets/Resources Page/pRIMARY 2 BG.png">
+							<a id="download4" href="DOCUMENTS/PP2.docx"><button class="btn btn-block btn-blue">DOWNLOAD <i class="fa fa-download"></i></button></a>
+				</div>
+				</div>
+				<div class="col-md-4">
+					<div class="pre2-resource">
+						<h4>ENVIRONMENTAL</h4>
+						<img src="Kidel Web Assets/Resources Page/PRIMARY 1 BG.png">
+							<a id="download5" href="DOCUMENTS/PP2.docx"><button class="btn btn-block btn-purple">DOWNLOAD <i class="fa fa-download"></i></button></a>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<script type="text/javascript">
+		const download = document.querySelector('#download');
+		const modal = document.querySelector('.mode');
+		download.addEventListener('click',()=>{
+			setTimeout(function(){
+				modal.classList.add('active');
+			},2000assets/css/);
+		});
+
+		const download1 = document.querySelector('#download1');
+		const modal1 = document.querySelector('.mode');
+		download1.addEventListener('click',()=>{
+			setTimeout(function(){
+				modal1.classList.add('active');
+			},2000);
+		});
+
+		const download2 = document.querySelector('#download2');
+		const modal2 = document.querySelector('.mode');
+		download2.addEventListener('click',()=>{
+			setTimeout(function(){
+				modal2.classList.add('active');
+			},2000);
+		});
+
+
+		const download3 = document.querySelector('#download3');
+		const modal3 = document.querySelector('.mode');
+		download3.addEventListener('click',()=>{
+			setTimeout(function(){
+				modal3.classList.add('active');
+			},2000);
+		});
+
+		const download4 = document.querySelector('#download4');
+		const modal4 = document.querySelector('.mode');
+		download4.addEventListener('click',()=>{
+			setTimeout(function(){
+				modal4.classList.add('active');
+			},2000);
+		});
+
+		const download5 = document.querySelector('#download5');
+		const modal5 = document.querySelector('.mode');
+		download5.addEventListener('click',()=>{
+			setTimeout(function(){
+				modal5.classList.add('active');
+			},2000);
+		});
+
+
+		const close = document.querySelector('#close');
+		close.addEventListener('click',()=>{
+			document.querySelector('.mode').classList.remove('active');
+		});
+	</script>
+</body>
+</html>
