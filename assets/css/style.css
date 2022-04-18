@@ -246,3 +246,11 @@ body{
 	--mb-1: 2.5rem;
 	--mb-1: 3.0rem;
 }
+.radios{
+	display: flex;
+	flex-direction: column;
+}
+.radios input{
+	margin:10px ;
+	border: 3px solid #000;
+}

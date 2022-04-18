@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 </head>
 <script type="text/javascript">
     var canvas6, ct6, flag6 = false,
@@ -771,7 +771,7 @@
                 break;
         }
         if (x == "white") y = 14;
-        else y = 5;
+        else y = 2;
     
     }
     
@@ -832,366 +832,11 @@
     }
     </script>
 <body onload="init();init1();init2();init3();init4();init5();init6();">
-	<h3 style="text-align: center;">PLAY GROUP</h3>
+	<h3 style="text-align: center;">PP2</h3>
 <div class="slider">
-
 <div class="slide active">
-<h3>Number work</h3>
-<h4>1). Join the dots for the following numbers</h4>
-		 <canvas id="can1" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
-        <div style="">Choose Color</div>
-        <div class="col-md-12">
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="">Eraser</div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		 <img id="canvasimg" style="" style="display:none;">
-        	</div>
-        	<div class="col-md-1">
-        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
-        	</div>
-        	<div class="col-md-1">
-        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
-        	</div>
-        </div>
-            <div class="row join" style="position:absolute;top:250px;left:100px;z-index: -100;">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/p1.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/p2.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/p3.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/p4.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/p5.png"> 
-                    </div>
-                </div>
-            </div>
-</div>
-
-
-<div class="slide">
-	2). Color the numbers
-	<canvas id="can2" width="1000" height="400" style="border:2px solid;position: relative;"></canvas>
-        <div style="">Choose Color</div>
-        <div class="col-md-12">
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="">Eraser</div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		 <img id="canvasimg" style="" style="display:none;">
-        	</div>
-        	<div class="col-md-1">
-        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
-        	</div>
-        	<div class="col-md-1">
-        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
-        	</div>
-        </div>
-			<img draggable="false" src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp1.png" style="position:absolute;top:150px;left:100px;width:70%;height:340px;z-index: -100;">
-</div>
-
-
-
-
-
-<div class="slide">
-<h3>Language</h3>
-
-<h4>1). Join the dots to form a picture:</h4>
-<div class="row read">
- 			<canvas id="can3" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
-        <div style="">Choose Color</div>
-        <div class="col-md-12">
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="">Eraser</div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		 <img id="images/canvasimg" style="" style="display:none;">
-        	</div>
-        	<div class="col-md-1">
-        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
-        	</div>
-        	<div class="col-md-1">
-        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
-        	</div>
-        </div>
-			<div class="row join" style="position:absolute;top:150px;left:100px;z-index: -100;">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp2.png"> 
-                    </div>
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp3.png"> 
-                    </div>
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp4.png"> 
-                    </div>
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp5.png"> 
-                    </div>
-                </div>
- 		</div>
-</div>
-</div>
-
-
-
-
-
-
-<div class="slide">
-<h4>2). Color the pictures:</h4>
-<canvas id="can4" width="900" height="500" style="border:2px solid;position: relative;"></canvas>
-        <div style="">Choose Color</div>
-        <div class="col-md-12">
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="">Eraser</div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		 <img id="images/canvasimg" style="" style="display:none;">
-        	</div>
-        	<div class="col-md-1">
-        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
-        	</div>
-        	<div class="col-md-1">
-        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
-        	</div>
-        </div>
-			<img draggable="false" src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp6.png" style="position:absolute;top:100px;left:100px;width:250px;height:220px;z-index: -100;">
-            <img draggable="false" src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp7.png" style="position:absolute;top:100px;left:350px;width:250px;height:220px;z-index: -100;">
-            <img draggable="false" src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp8.png" style="position:absolute;top:100px;left:600px;width:250px;height:220px;z-index: -100;">
-            <img draggable="false" src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp9.png" style="position:absolute;top:320px;left:100px;width:250px;height:220px;z-index: -100;">
-            <img draggable="false" src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp10.png" style="position:absolute;top:320px;left:350px;width:250px;height:220px;z-index: -100;">
-            <img draggable="false" src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp11.png" style="position:absolute;top:320px;left:600px;width:250px;height:220px;z-index: -100;">
-</div>
-
-
-
-
-<div class="slide">
-    <h3>Creative</h3>
-<h4>1). Color the pictures below:</h4>
-<canvas id="can5" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
-        <div style="">Choose Color</div>
-        <div class="col-md-12">
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="">Eraser</div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		 <img id="canvasimg" style="" style="display:none;">
-        	</div>
-        	<div class="col-md-1">
-        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
-        	</div>
-        	<div class="col-md-1">
-        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
-        	</div>
-        </div>
-			<div class="row join" style="position:absolute;top:150px;left:100px;z-index: -100;">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/5pp.png"> 
-                    </div>
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/6pp.png"> 
-                    </div>
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/7pp.png"> 
-                    </div>
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/8pp.png"> 
-                    </div>
-                </div>
-</div>
-</div>
-
-
-
-
-
-<div class="slide">
-    <h3>Environmental</h3>
-<h4>1). Color the clothes we wear</h4>
-<div class="container">
-	 <canvas id="can" width="1000" height="300" style="border:2px solid;
-	 margin-top: 2rem;"></canvas>
-        <div style="">Choose Color</div>
-        <div class="col-md-12">
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="">Eraser</div>
-        	</div>
-        	<div class="col-md-1">
-        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-        	</div>
-        	<div class="col-md-1">
-        		 <img id="canvasimg" style="" style="display:none;">
-        	</div>
-        	<div class="col-md-1">
-        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
-        	</div>
-        	<div class="col-md-1">
-        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
-        	</div>
-        </div>
-
-
-        <div class="row color" style="position:absolute;top:200px;left:100px;z-index: -100;">
-                <div class="col-md-12">
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/9pp.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/10pp.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/11pp.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/12pp.png"> 
-                    </div>
-                    <div class="col-md-2">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/13pp.png"> 
-                    </div>
-                   
-                </div>
-        
-</div>
-</div>
-</div>
-
-
-<div class="slide">
-<h4>2). Join the dots for the weather symbols</h4>
+<h3>Environmental activities</h3>
+<h4>1). Color and name these items</h4>
 <canvas id="can6" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
         <div style="">Choose Color</div>
         <div class="col-md-12">
@@ -1229,37 +874,87 @@
         		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
         	</div>
         </div>
-			<div class="row color" style="position:absolute;top:150px;left:100px;z-index: -100;">
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/14pp.png"> 
-                    </div>
-                    <div class="col-md-6">
-                       <img src="PLAYGROUP-20220410T203729Z-001/PLAYGROUP/15pp.png"> 
-                    </div>
-                   
-                </div>
-</div>
-
-
-</div>
+			<img draggable="false" src="../images/download (2).jpeg" style="position:absolute;top:200px;left:100px;width:250px;height:220px;z-index: -100;">
+			<img draggable="false" src="../images/360_F_97777901_tR48eZi5KrZ22R4oJ3aXYmvMIn5yPZO9.jpg" style="position:absolute;top:200px;left:600px;width:250px;height:220px;z-index: -100;">
 </div>
 
 
 
 
+
+<div class="slide">
+ 		2) Match:
+<div class="container">
+<div class="col-md-12">
+<div class="empty-container">
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="../images/52-527219_rain-animation-clip-art-clipart-rain-transparent-background.png" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Sea</div>
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="../images/3l-Akosombo.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Rain</div>
+	</div>
+
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="../images/download (3).jpeg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">River</div>
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="fill"><img src="../images/unnamed.jpg" style="device-width: 150px;height:150px;"></div>
+	</div>
+	<div class="empty">
+	</div>
+	<div class="empty" style="border: none;">
+		<div class="name">Dam</div>
+	</div>
+	</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="slide">
+<div class="fillin">
+	<div class="row">
+	<div class="filla col-md-12" draggable="true" style="border: none;width: 20px;height: 20px;text-align: center;">1</div>
+	<div class="filla col-md-12" draggable="true" style="border: none;width: 20px;height: 20px;text-align: center;">0</div>
+	<div class="filla col-md-12" draggable="true" style="border: none;width: 20px;height: 20px;text-align: center;">4</div>
+	</div>
+</div>
+3). A snake has <div class="emptya" type="" name="" readonly style="border: none;width: 20px;height: 20px;text-align: center;border-bottom: 1px solid #000;"></div>  legs.
+</div>
+</div>
+</div>
 <div class="controls">
-    <div class="row">
-        <div class="col-md-10">
-            
-        </div>
-        <div class="col-md-1">
-            <button class="btn btn-primary prev">Prev</button>
-        </div>
-        <div class="col-md-1">
-            <button class="btn btn-primary next">Next</button>
-        </div>
-    </div>
-<script type="text/javascript" src="assets/js/main.js"></script>
+	<div class="row">
+		<div class="col-md-10">
+    		
+    	</div>
+		<div class="col-md-1">
+			<button class="btn btn-primary prev">Prev</button>
+		</div>
+		<div class="col-md-1">
+			<button class="btn btn-primary next">Next</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="../assets/js/main.js"></script>
 </body>
 </html>

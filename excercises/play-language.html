@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+</head>
+
+<script type="text/javascript">
+    var canvas3, ctx3, flag3 = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag3 = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init3() {
+        canvas3 = document.getElementById('can3');
+        ctx3 = canvas3.getContext("2d");
+        w = canvas3.width;
+        h = canvas3.height;
+    
+        canvas3.addEventListener("mousemove", function (e) {
+            findxy3('move', e)
+        }, false);
+        canvas3.addEventListener("mousedown", function (e) {
+            findxy3('down', e)
+        }, false);
+        canvas3.addEventListener("mouseup", function (e) {
+            findxy3('up', e)
+        }, false);
+        canvas3.addEventListener("mouseout", function (e) {
+            findxy3('out', e)
+        }, false);
+    }
+    
+    function color3(obj) {
+        switch (obj.id) {
+            case "green3":
+                x = "green";
+                break;
+            case "blue3":
+                x = "blue";
+                break;
+            case "red3":
+                x = "red";
+                break;
+            case "yellow3":
+                x = "yellow";
+                break;
+            case "orange3":
+                x = "orange";
+                break;
+            case "black3":
+                x = "black";
+                break;
+            case "white3":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 12;
+    
+    }
+    
+    function draw3() {
+        ctx3.beginPath();
+        ctx3.moveTo(prevX, prevY);
+        ctx3.lineTo(currX, currY);
+        ctx3.strokeStyle = x;
+        ctx3.lineWidth = y;
+        ctx3.lineCap = "round";
+        ctx3.lineJoin = "round";
+        ctx3.stroke();
+        ctx3.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx3.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas3.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy3(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas3.offsetLeft;
+            currY = e.clientY - canvas3.offsetTop;
+    
+            flag3 = true;
+            dot_flag3 = true;
+            if (dot_flag3) {
+                ctx3.beginPath();
+                ctx3.fillStyle = x;
+                ctx3.fillRect(currX, currY, 2, 2);
+                ctx3.closePath();
+                dot_flag3 = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag3 = false;
+        }
+        if (res == 'move') {
+            if (flag3) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas3.offsetLeft;
+                currY = e.clientY - canvas3.offsetTop;
+                draw3();
+            }
+        }
+    }
+    </script>
+<script type="text/javascript">
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init() {
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
+    
+        canvas.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+    }
+    
+    function color(obj) {
+        switch (obj.id) {
+            case "green":
+                x = "green";
+                break;
+            case "blue":
+                x = "blue";
+                break;
+            case "red":
+                x = "red";
+                break;
+            case "yellow":
+                x = "yellow";
+                break;
+            case "orange":
+                x = "orange";
+                break;
+            case "black":
+                x = "black";
+                break;
+            case "white":
+                x = "white";
+                break;
+        }
+        if (x == "white") y = 14;
+        else y = 5;
+    
+    }
+    
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.stroke();
+        ctx.closePath();
+    }
+    
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+    
+    function findxy(res, e) {
+        if (res == 'down') {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+    
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }
+        if (res == 'up' || res == "out") {
+            flag = false;
+        }
+        if (res == 'move') {
+            if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+                draw();
+            }
+        }
+    }
+    </script>
+<body onload="init();init3();">
+	<h3 style="text-align: center;">PLAY GROUP</h3>
+<div class="slider">
+
+
+<div class="slide active">
+<h3>Language</h3>
+
+<h4>1). Join the dots to form a picture:</h4>
+<div class="row read">
+ 			<canvas id="can3" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="">Eraser</div>
+        	</div>
+        	<div class="col-md-1">
+        		<div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+        	</div>
+        	<div class="col-md-1">
+        		 <img id="../images/canvasimg" style="" style="display:none;">
+        	</div>
+        	<div class="col-md-1">
+        	<input type="button" value="save" id="btn" size="30" onclick="save()" style="">	
+        	</div>
+        	<div class="col-md-1">
+        		<input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+        	</div>
+        </div>
+			<div class="row join" style="position:absolute;top:150px;left:100px;z-index: -100;">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp2.png"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp3.png"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp4.png"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp5.png"> 
+                    </div>
+                </div>
+ 		</div>
+</div>
+</div>
+<div class="slide">
+<h3>Language</h3>
+
+<h4>2). Join the dots to form a picture:</h4>
+<div class="row read">
+            <canvas id="can" width="900" height="400" style="border:2px solid;position: relative;"></canvas>
+        <div style="">Choose Color</div>
+        <div class="col-md-12">
+            <div class="col-md-1">
+                <div style="width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
+            </div>
+            <div class="col-md-1">
+                <div style="width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
+            </div>
+            <div class="col-md-1">
+                <div style="width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
+            </div>
+            <div class="col-md-1">
+                <div style="width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
+            </div>
+            <div class="col-md-1">
+                <div style="width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
+            </div>
+            <div class="col-md-1">
+                <div style="width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
+            </div>
+            <div class="col-md-1">
+                <div style="">Eraser</div>
+            </div>
+            <div class="col-md-1">
+                <div style="width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+            </div>
+            <div class="col-md-1">
+                 <img id="../images/canvasimg" style="" style="display:none;">
+            </div>
+            <div class="col-md-1">
+            <input type="button" value="save" id="btn" size="30" onclick="save()" style=""> 
+            </div>
+            <div class="col-md-1">
+                <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="">
+            </div>
+        </div>
+            <div class="row join" style="position:absolute;top:150px;left:100px;z-index: -100;">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp2.png"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp3.png"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp4.png"> 
+                    </div>
+                    <div class="col-md-6">
+                       <img src="../PLAYGROUP-20220410T203729Z-001/PLAYGROUP/ppp5.png"> 
+                    </div>
+                </div>
+        </div>
+</div>
+</div>
+</div>
+<div class="controls">
+    <div class="row">
+        <div class="col-md-10">
+            
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary prev">Prev</button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary next">Next</button>
+        </div>
+    </div>
+<script type="text/javascript" src="../assets/js/main.js"></script>
+</body>
+</html>
